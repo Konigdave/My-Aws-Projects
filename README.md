@@ -19,7 +19,7 @@ This project explores **AWS Identity and Access Management (IAM)** by:
 
 ## 📸 Screenshots  
 | IAM dashboard | IAM User Permissions/ group | IAM User permission granted |  
-|------------|----------------|---------------|  
+
 | ![IAM dashboard](https://github.com/user-attachments/assets/cf549af6-3294-4102-9d24-2d202432ae16) ![IAM Users](https://github.com/user-attachments/assets/4086111c-15c1-4145-95f4-172a6913a9b7)
 ![IAM Users groups](https://github.com/user-attachments/assets/0bb573c5-f6d7-4471-a10f-6905df9bd98f)
  | ![S3 Granted user permission](https://github.com/user-attachments/assets/df3f7c72-be6d-492c-b924-a360ebab92fa) | ![S3 Granted user3 permission STOP INSTANCE](https://github.com/user-attachments/assets/4b6aa263-f6d8-4afc-a84d-e1f9a32b9ef7) |  
