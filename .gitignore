@@ -1,1 +1,15 @@
 .terraform/
+
+# Terraform local state and cache
+**/.terraform/*
+*.tfstate
+*.tfstate.*
+.crash
+*.log
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+.terraformrc
+terraform.rc
+.terraform/
