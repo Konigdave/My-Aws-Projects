@@ -1,0 +1,14 @@
+{
+    "Parameters": [
+        {
+            "ParameterKey": "BucketName",
+            "DefaultValue": "my-sts-lab-bucket",
+            "NoEcho": false
+        }
+    ],
+    "Description": "Create a role with S3 access to a specific bucket",
+    "Capabilities": [
+        "CAPABILITY_NAMED_IAM"
+    ],
+    "CapabilitiesReason": "The following resource(s) require capabilities: [AWS::IAM::Role]"
+}
