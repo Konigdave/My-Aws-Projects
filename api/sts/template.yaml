@@ -16,8 +16,10 @@ Resources:
         Statement:
           - Effect: Allow
             Principal:
-              AWS: "*"
-            Action: sts:AssumeRole
+            Service:
+                - s3.amazonaws.com
+            Action: 
+              - 'sts:AssumeRole'
       Path: /
       Policies:
         - PolicyName: S3Access
@@ -25,7 +27,7 @@ Resources:
             Version: "2012-10-17"
             Statement:
               - Effect: Allow
-                Action: "s3:*"
+                Action: "*"
                 Resource:
                   - !Sub "arn:aws:s3:::${BucketName}"
                   - !Sub "arn:aws:s3:::${BucketName}/*"

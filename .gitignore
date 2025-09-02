@@ -14,3 +14,9 @@ override.tf.json
 terraform.rc
 .terraform/
 .terraform/
+
+# AWS credentials and environment files
+.env
+*.env
+.aws/
+credentials
