@@ -42,4 +42,9 @@ An error occurred (AccessDenied) when calling the ListBuckets operation: User: a
 
 We need to create a role that will access a new resource
 
+'''sh
+chmod u+x bin/deploy
+./bin/deploy
+...
+
 ## Use new user credentials and assume role
