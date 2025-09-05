@@ -20,3 +20,6 @@ tasks:
       aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
       aws configure set default.region eu-central-1
 
+      AWS_CLI_AUTO_PROMPT: on-partial
+    before: |
+      ./bin/aws_cli_install.sh
