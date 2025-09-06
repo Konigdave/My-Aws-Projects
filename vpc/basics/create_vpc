@@ -55,6 +55,13 @@ DEFAULT_RT_ID=$(aws ec2 describe-route-tables \
 
 echo "Default Route Table ID: $DEFAULT_RT_ID"
 
+ASSOC_ID=$(aws ec2 associate-route-table \
+--route-table-id $DEFAULT_RT_ID \
+--subnet-id $SUBNET_ID \
+--query AssociationId \
+--output text)
+
+echo "ASSOC_ID: $ASSOC_ID"
 
 # add a route for our RT to our IGW
 
@@ -64,4 +71,4 @@ aws ec2 create-route \
   --gateway-id $IGW_ID
 
   # Print out delete command
-  echo "./delete_vpc $VPC_ID $IGW_ID $SUBNET_ID $DEFAULT_RT_ID"
+  echo "./delete_vpc $VPC_ID $IGW_ID $SUBNET_ID $ASSOC_ID $DEFAULT_RT_ID"
