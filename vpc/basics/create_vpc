@@ -13,6 +13,10 @@ VPC_ID=$(aws ec2 create-vpc \
 
 echo "$VPC_ID: $VPC_ID"
 
+# Turn on DNS Hostnames
+aws ec2 modify-vpc-attribute --vpc-id $VPC_ID --enable-dns-hostnames "{\"Value\":true}"
+
+
 # create an IGW
 IGW_ID=$(aws ec2 create-internet-gateway \
 --query InternetGateway.InternetGatewayId \
@@ -21,13 +25,43 @@ IGW_ID=$(aws ec2 create-internet-gateway \
 
 echo "IGW_ID: $IGW_ID"
 
-
 # Attach an IGW
 
 aws ec2 attach-internet-gateway --internet-gateway-id $IGW_ID --vpc-id $VPC_ID
 
 # create a new subnet
 
+SUBNET_ID=$(aws ec2 create-subnet \
+--vpc-id $VPC_ID \
+--cidr-block 172.1.0.0/20 \
+--query 'Subnet.SubnetId' \
+--region eu-central-1 \
+--output text)
+
+echo "SUBNET_ID: $SUBNET_ID"
+
+# Auto assign IPv4 addresses
+
+aws ec2 modify-subnet-attribute --subnet-id $SUBNET_ID --map-public-ip-on-launch
+
+
 # Explicitly associate subnet
 
+DEFAULT_RT_ID=$(aws ec2 describe-route-tables \
+  --filters "Name=vpc-id,Values=$VPC_ID" "Name=association.main,Values=true" \
+  --region eu-central-1 \
+  --query 'RouteTables[0].RouteTableId' \
+  --output text)
+
+echo "Default Route Table ID: $DEFAULT_RT_ID"
+
+
 # add a route for our RT to our IGW
+
+aws ec2 create-route \
+  --route-table-id $DEFAULT_RT_ID \
+  --destination-cidr-block 0.0.0.0/0 \
+  --gateway-id $IGW_ID
+
+  # Print out delete command
+  echo "./delete_vpc $VPC_ID $IGW_ID $SUBNET_ID $DEFAULT_RT_ID"
