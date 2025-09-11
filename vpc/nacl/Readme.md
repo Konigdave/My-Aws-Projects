@@ -13,6 +13,19 @@ aws ec2 describe-vpcs \
 aws ec2 create-network-acl --vpc-id vpc-088dc21847e4940dc
 ```
 
+## Add entry
+
+```sh
+aws ec2 create-network-acl-entry \
+  --network-acl-id acl-08b7b6d50bc01ad21 \
+  --ingress \
+  --rule-number 90 \
+  --protocol -1 \
+  --port-range From=0,To=65535 \
+  --cidr-block 149.156.124.14/32 \
+  --rule-action deny
+```
+
 ## Get AMI for Amazon Linux 2
 
 ```sh
