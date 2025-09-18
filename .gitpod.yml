@@ -23,3 +23,7 @@ tasks:
       AWS_CLI_AUTO_PROMPT: on-partial
     before: |
       ./bin/aws_cli_install.sh
+
+  - name: Setup yq
+    init: |
+      brew install yq
