@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-yq -o json policy.yml > policy.json
+#yq -o json policy.yml > policy.json
 
 aws iam create-policy-version \
     --policy-arn arn:aws:iam::354918366000:policy/my-lab-policy \
-    --policy-document "$(yq -o json policy.yml) \
+    --policy-document "$(yq -o json policy.yml)" \
     --set-as-default
