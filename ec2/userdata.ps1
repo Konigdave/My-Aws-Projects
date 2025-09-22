@@ -7,10 +7,10 @@
 
 # Define download URL for Apache HTTP Server (Update the URL to the latest version)
 # https://www.apachelounge.com/download/
-$downloadurl = "https://www.apachelounge.com/download/VS17/binaries/httpd-2.4.58-240131-win64-VS17.zip"
+$downloadurl = "https://www.apachelounge.com/download/VS17/binaries/httpd-2.4.65-250724-win64-VS17.zip"
 |
 # Define where to save the downloaded zip
-$zipPath = "C: \apache.zip"
+$zipPath = "C:\apache.zip"
 
 # Download Apache HTTP Server zip
 # Invoke-WebRequest -Uri $downloadUrl -OutFile $zipPath -MaximumRedirection 5
@@ -21,10 +21,10 @@ $webClient = New-Object System.Net.WebClient
 $webclient.DownloadFile($downloadurl,$zipPath)
 
 # Define the extraction path
-$extractPath = "c: \"
+$extractPath = "c:\"
 
 # Extract the zip file
-Expand-Archive -Path SzipPath -DestinationPath $extractPath
+Expand-Archive -Path $zipPath -DestinationPath $extractPath
 
 # Remove the downloaded zip file to save space
 Remove-Item -Path $zipPath
@@ -49,29 +49,3 @@ Start-Service -Name "Apache2.4"
 # Start-Process -FilePath $serviceMonitorPath
 </powershell>
 
-#ps1
-# This script installs Apache HTTP Server on a Windows EC2 instance
-
-# Variables
-$downloadUrl = "https://www.apachelounge.com/download/VS17/binaries/httpd-2.4.58-240131-win64-VS17.zip"
-$zipPath = "C:\apache.zip"
-$installPath = "C:\Apache24"
-
-# Download Apache HTTP Server zip
-$webClient = New-Object System.Net.WebClient
-$webClient.DownloadFile($downloadUrl, $zipPath)
-
-# Extract the zip file to the install path
-Expand-Archive -Path $zipPath -DestinationPath $installPath -Force
-
-# Remove the zip file after extraction
-Remove-Item $zipPath
-
-# Install Apache as a service
-& "$installPath\bin\httpd.exe" -k install
-
-# Start the Apache service
-Start-Service -Name "Apache2.4"
-
-# Set the service to start automatically on boot
-Set-Service -Name "Apache2.4" -StartupType Automatic
