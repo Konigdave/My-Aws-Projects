@@ -48,3 +48,30 @@ Start-Service -Name "Apache2.4"
 # Optionally, use ApacheMonitor.exe to manage the Apache service
 # Start-Process -FilePath $serviceMonitorPath
 </powershell>
+
+#ps1
+# This script installs Apache HTTP Server on a Windows EC2 instance
+
+# Variables
+$downloadUrl = "https://www.apachelounge.com/download/VS17/binaries/httpd-2.4.58-240131-win64-VS17.zip"
+$zipPath = "C:\apache.zip"
+$installPath = "C:\Apache24"
+
+# Download Apache HTTP Server zip
+$webClient = New-Object System.Net.WebClient
+$webClient.DownloadFile($downloadUrl, $zipPath)
+
+# Extract the zip file to the install path
+Expand-Archive -Path $zipPath -DestinationPath $installPath -Force
+
+# Remove the zip file after extraction
+Remove-Item $zipPath
+
+# Install Apache as a service
+& "$installPath\bin\httpd.exe" -k install
+
+# Start the Apache service
+Start-Service -Name "Apache2.4"
+
+# Set the service to start automatically on boot
+Set-Service -Name "Apache2.4" -StartupType Automatic
