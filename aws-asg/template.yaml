@@ -3,7 +3,7 @@ Description: Launch a simple EC2 for use with testing VPCS
 Parameters:
   InstanceType:
     Type: String
-    Default: t3.micro
+    Default: t2.micro
   VpcId:
     Type: String
     Default: vpc-03f9b84eaf79d50e7
@@ -14,6 +14,14 @@ Parameters:
     Type: String
     Default: subnet-0fb80ba7c0f8ffb55
 Resources:
+  MyLaunchTemplate:
+    Type: AWS::EC2::LaunchTemplate
+    Properties:
+      LaunchTemplateData:
+        InstanceType: !Ref InstanceType
+        ImageId: !Ref ImageId
+        SecurityGroupIds:
+          - !Ref SG
   MyEC2Instance: 
     Type: AWS::EC2::Instance
     Properties:
@@ -49,3 +57,14 @@ Resources:
           FromPort: -1
           ToPort: -1
           CidrIp: 0.0.0.0/0
+  MyAutoScalingGroup:
+    Type: AWS::AutoScaling::AutoScalingGroup
+    Properties:
+      VPCZoneIdentifier:
+        - subnet-0fb80ba7c0f8ffb55
+      LaunchTemplate:
+        LaunchTemplateId: !Ref MyLaunchTemplate
+        Version: !GetAtt MyLaunchTemplate.LatestVersionNumber
+      MinSize: 1
+      MaxSize: 3
+      DesiredCapacity: 1
