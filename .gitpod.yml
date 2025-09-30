@@ -27,3 +27,10 @@ tasks:
   - name: Setup yq
     init: |
       brew install yq
+
+  - name: Install SAM
+    init: |
+      curl -Lo sam.zip https://github.com/aws/aws-sam-cli/releases/latest/download/aws-sam-cli-linux-x86_64.zip
+      unzip sam.zip -d sam-installation
+      sudo ./sam-installation/install
+

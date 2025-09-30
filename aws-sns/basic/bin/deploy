@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+set -e
+
+root_path=$(realpath .)
+
+echo "== SAM deploy..."
+
+sam deploy \
+  --template-file "./.aws-sam/build/template.yml" \
+  --stack-name "sns-basic-lambda" \
+  --capabilities "CAPABILITY_IAM"
