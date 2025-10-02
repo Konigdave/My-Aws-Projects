@@ -9,4 +9,4 @@ sam deploy \
   --template-file "./.aws-sam/build/template.yml" \
   --stack-name "sns-basic-lambda" \
   --capabilities "CAPABILITY_IAM" \
-  --region "ca-central-1"
+  --region "us-east-1"
