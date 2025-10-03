@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+root_path=$(realpath .)
+template_path="${root_path}/template.yaml"
+
+echo "== deploy SQS Standard"
+
+aws cloudformation deploy \
+  --template-file $template_path \
+  --stack-name "sqs-standard-queue" \
+  --capabilities "CAPABILITY_IAM" \
+  --region "ca-central-1"
