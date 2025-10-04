@@ -1,0 +1,15 @@
+=> [32m#<struct Aws::SQS::Types::ReceiveMessageResult[0m
+ messages[32m=[0m
+  [[32m#<struct Aws::SQS::Types::Message[0m
+    message_id[32m=[0m[31m[1;31m"[0m[31m13dd1b0d-52fe-4c9f-9003-c244a32e9ec3[1;31m"[0m[31m[0m,
+    receipt_handle[32m=[0m
+     [31m[1;31m"[0m[31mAQEBKIsBuEzJsUZaXutK8/2fTPA+BQEqoC9kcHlUwrJugnXBiYYBzQwlingi+qL02Vqe3kvM1FznAdU9F4wGj9YSh3C9IydW+FP0lbT/pEIXXzAKe+r8S0VuxErEcf0r5Z99Pr+Uw5ND68q1kwOqonwgyCxSd2vmT3cQ04qTUxYirNlIlyFJts6a+8icxZGS5MbWQaaZDPVtlLB8bSZddyOTdNE5CTYhYKdqHhdoGbD4yaWouuG6hvLyBkpQhzxy9i9CrbbT6h/E6dZ2y5Ca8TUgV20NwWco5qLKSJHImc/zllavBoNWh/Pvw44817MW7WtRUnMOIH2/VcON2K+r0sls5sOEjIpRD9C0FvAqq9LevIE4z6xVp8pAX29OnHq8YXufPFnvRw1gHXvj5jIK3iv9rdn+ltvdv8dNjkbuJHDtUSwOFiakiqwxjPYd5+9NXpVE[1;31m"[0m[31m[0m,
+    md5_of_body[32m=[0m[31m[1;31m"[0m[31med076287532e86365e841e92bfc50d8c[1;31m"[0m[31m[0m,
+    body[32m=[0m[31m[1;31m"[0m[31mHello World![1;31m"[0m[31m[0m,
+    attributes[32m=[0m
+     {[31m[1;31m"[0m[31mSenderId[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mAIDAVFIWIPMYF72GGUXNX[1;31m"[0m[31m[0m,
+      [31m[1;31m"[0m[31mApproximateFirstReceiveTimestamp[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31m1759456061422[1;31m"[0m[31m[0m,
+      [31m[1;31m"[0m[31mApproximateReceiveCount[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31m5[1;31m"[0m[31m[0m,
+      [31m[1;31m"[0m[31mSentTimestamp[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31m1759455785199[1;31m"[0m[31m[0m},
+    md5_of_message_attributes[32m=[0m[1;36mnil[0m,
+    message_attributes[32m=[0m{}[32m>[0m][32m>[0m

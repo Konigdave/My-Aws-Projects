@@ -11,3 +11,27 @@ aws sqs send-message \
   --message-body "Hello World!" \
   --delay-seconds 0 \
   --message-attributes "$message_attributes_path"
+
+aws sqs send-message \
+  --queue-url "$QUEUE_URL" \
+  --message-body "Hello 1!" \
+  --delay-seconds 1 \
+  --message-attributes "$message_attributes_path"
+
+  aws sqs send-message \
+  --queue-url "$QUEUE_URL" \
+  --message-body "Hello 2!" \
+  --delay-seconds 2 \
+  --message-attributes "$message_attributes_path"
+
+  aws sqs send-message \
+  --queue-url "$QUEUE_URL" \
+  --message-body "Hello 3!" \
+  --delay-seconds 3 \
+  --message-attributes "$message_attributes_path"
+
+  aws sqs send-message \
+  --queue-url "$QUEUE_URL" \
+  --message-body "Hello 4!" \
+  --delay-seconds 4 \
+  --message-attributes "$message_attributes_path"
