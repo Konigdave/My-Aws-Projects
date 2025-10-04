@@ -1,0 +1,10 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: A Simple SQS queue
+
+Resources:
+  MyQueue:
+    # https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-sqs-queue.html#aws-resource-sqs-queue--examples
+    Type: AWS::SQS::Queue
+    Properties:
+       FifoQueue: true
+      # QueueName: SampleQueue
