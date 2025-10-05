@@ -1,0 +1,15 @@
+{
+  "name": "My AWS Dev Env",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu", 
+  "features": {},
+  "postCreateCommand": "bash .devcontainer/setup.sh",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "AmazonWebServices.aws-toolkit-vscode",
+        "HashiCorp.terraform",
+        "redhat.vscode-yaml"
+      ]
+    }
+  }
+}
