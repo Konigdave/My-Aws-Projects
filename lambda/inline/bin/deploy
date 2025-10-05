@@ -1,0 +1,11 @@
+set -e
+
+root_path=$(realpath .)
+
+echo "== SAM deploy..."
+
+sam deploy \
+  --template-file "./.aws-sam/build/template.yml" \
+  --stack-name "inline-lambda-py" \
+  --capabilities "CAPABILITY_IAM" \
+  --region ca-central-1

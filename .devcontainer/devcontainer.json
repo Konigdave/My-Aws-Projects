@@ -1,6 +1,6 @@
 {
   "name": "My AWS Dev Env",
-  "image": "mcr.microsoft.com/devcontainers/base:ubuntu", 
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
   "features": {},
   "postCreateCommand": "bash .devcontainer/setup.sh",
   "customizations": {
