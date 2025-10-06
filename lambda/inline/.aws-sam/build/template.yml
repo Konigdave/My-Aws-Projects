@@ -7,5 +7,6 @@ Resources:
       Handler: index.handler
       Runtime: python3.12
       PackageType: Zip
-      InlineCode: "def handler(event, content):\n    message = 'Hello {} {}!'.format(event['first_name']),\
-        \ event['last_name'])\n    return {\n        'message' : message\n    }"
+      InlineCode: "def handler(event, content):\n    message = 'Hello {} {}!'.format(event['first_name'],\
+        \ event['last_name'])\n    print(\"log this for me\")\n    return {\n    \
+        \    'message' : message\n    }"
