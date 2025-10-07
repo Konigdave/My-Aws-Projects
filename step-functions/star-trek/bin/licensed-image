@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+aws s3 rm s3://sf-star-trek-2345/inputs/licensed-image.jpeg --region ca-central-1
+aws s3 cp licensed-image.jpeg s3://sf-star-trek-2345/inputs/licensed-image.jpeg --region ca-central-1
