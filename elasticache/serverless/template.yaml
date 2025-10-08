@@ -1,0 +1,58 @@
+AWSTemplateFormatVersion: 2010-09-09
+Description: Launch a simple EC2 for use with testing VPCS
+Parameters:
+  InstanceType:
+    Type: String
+    Default: t2.micro
+  VpcId:
+    Type: String
+    Default: vpc-03f9b84eaf79d50e7
+  ImageId:
+    Type: String
+    Default: ami-0dd67d541aa70c8b9
+  SubnetId:
+    Type: String
+    Default: subnet-0158bf84c4e43bdf8
+  SecurityGroupId:
+    Type: String
+    Default: sg-003a3296163b40df7 
+Resources:
+  SSMRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: 2012-10-17
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: ec2.amazonaws.com
+            Action: sts:AssumeRole
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore
+  EC2InstanceProfile:
+    Type: AWS::IAM::InstanceProfile
+    Properties:
+      Roles:
+        - !Ref SSMRole
+  MyEC2Instance: 
+    Type: AWS::EC2::Instance
+    Properties: 
+      IamInstanceProfile: !Ref EC2InstanceProfile
+      InstanceType: !Ref InstanceType
+      ImageId: !Ref ImageId
+      NetworkInterfaces:
+        - AssociatePublicIpAddress: true
+          DeviceIndex: 0
+          SubnetId: !Ref SubnetId
+          GroupSet:
+            - !Ref SecurityGroupId 
+          DeleteOnTermination: true
+      UserData:
+        Fn::Base64: !Sub |
+          #!/bin/bash
+          sudo apt-get update -y
+          sudo apt-get install -y redis-tools
+          redis-cli --version
+          sudo snap install amazon-ssm-agent --classic
+          sudo systemctl enable amazon-ssm-agent
+          sudo systemctl start amazon-ssm-agent
