@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+echo "== deploy ec2 instance to interact with redis"
+
+aws cloudformation deploy \
+  --template-file template.yaml \
+  --stack-name ec2-for-redis \
+  --capabilities CAPABILITY_IAM
