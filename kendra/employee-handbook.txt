@@ -1,0 +1,26 @@
+# Company Employee Handbook
+
+## Vacation Policy
+All full-time employees are entitled to 15 days of paid vacation per calendar year. 
+New employees can start using vacation days after completing 3 months of employment. 
+Unused vacation days can be carried over to the next year, up to a maximum of 10 days.
+
+## Sick Leave
+Employees receive 10 days of paid sick leave annually. 
+Sick leave does not carry over to the next year.
+
+## Work Hours
+The standard workweek is 40 hours, from Monday to Friday, 9 AM to 5 PM. 
+Employees are expected to record their working hours daily using the company’s online timesheet system.
+
+## IT Support
+If you forget your company email password, you can reset it by visiting the IT portal at 
+https://it.company-internal/reset-password or contacting IT support via email: support@company-internal.com.
+
+## Benefits
+Our company provides health insurance, dental coverage, and a retirement savings plan. 
+Contact hr@company-internal.com for more information about benefits.
+
+## Code of Conduct
+Employees are expected to maintain professionalism and respect in all interactions. 
+Harassment or discrimination of any kind will not be tolerated.
