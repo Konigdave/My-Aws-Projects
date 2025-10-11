@@ -51,9 +51,9 @@ https://awscli.amazonaws.com/v2/documentation/api/latest/reference/glue/create-c
 
 ```sh
 aws glue create-crawler \
---name MyCrawlerBasic \
+--name MyCrawler2345 \
 --role MyGlueServiceRole \
 --database-name mydatabase \
---targets '{"S3Targets": [{"Path": "s3://glue-data-catalog-6163/data/"}]}' \
+--targets '{"S3Targets": [{"Path": "s3://glue-data-catalog-2345/data/"}]}' \
 --classifiers []
 ```
